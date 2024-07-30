@@ -7,19 +7,25 @@ import customer_data from "./assets/data/customers.json";
 
 function App() {
 
-  let blankCustomer = { "id": -1, "name": "", "email": "", "password": "" };
+  let blankCustomer = { "id": -1, "name": "", "email": "", "pass": "" };
 
-  //const [customerVal, setCustomers] = useState([]);
   const [formObject, setFormObject] = useState(blankCustomer)
 
   function handleListClick(customer){
-    setFormObject(customer);
+    if(formObject.id === customer.id)
+      setFormObject(blankCustomer);
+    else
+      setFormObject(customer);
+  }
+
+  function onCancelClick(){
+    setFormObject(blankCustomer);
   }
 
   return (
     <div>       
-      <CustomerList data={customer_data} handleListClick={handleListClick}></CustomerList>
-      <CustomerAddUpdateForm formObject={formObject}></CustomerAddUpdateForm>
+      <CustomerList data={customer_data} formObject={formObject} handleListClick={handleListClick}></CustomerList>
+      <CustomerAddUpdateForm formObject={formObject} onCancelClick={onCancelClick}></CustomerAddUpdateForm>
     </div>
   );
 }

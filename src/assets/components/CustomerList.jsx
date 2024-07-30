@@ -14,7 +14,7 @@ const CustomerList = (props) => {
                 <tbody>
                     {
                         props.data.map((customer) => (
-                            <tr key={customer.id} onClick={()=>props.handleListClick(customer)}>
+                            <tr key={customer.id} onClick={()=>props.handleListClick(customer)} className={ (customer.id === props.formObject.id)?'mark':'' }>
                                 <td>{customer.name}</td>
                                 <td>{customer.email}</td>
                                 <td>{customer.pass}</td>

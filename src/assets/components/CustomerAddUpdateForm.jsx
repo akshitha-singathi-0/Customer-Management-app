@@ -10,10 +10,6 @@ const CustomerAddUpdateForm = (props) => {
     e.preventDefault();
     console.log("in onSaveClick()");
   }
-  function onCancelClick(e){
-    e.preventDefault();
-    console.log("in onCancelClick()");
-  }
 
     return (  
     <div>
@@ -28,7 +24,7 @@ const CustomerAddUpdateForm = (props) => {
         </div>
         <button type="button" class="btn btn-danger" onClick={onDeleteClick}>Delete</button>
         <button type="button" class="btn btn-primary" onClick={onSaveClick}>Save</button>
-        <button type="button" class="btn btn-light" onClick={onCancelClick}>Cancel</button>
+        <button type="button" class="btn btn-light" onClick={props.onCancelClick}>Cancel</button>
       
     </div>
     );
