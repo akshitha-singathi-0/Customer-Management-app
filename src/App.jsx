@@ -5,20 +5,30 @@ import CustomerList from "./assets/components/CustomerList";
 import customer_data from "./assets/data/customers.json";
 
 function App() {
+
+  function onDeleteClick(e){
+    e.preventDefault();
+    console.log("in onDeleteClick()");
+  }
+  function onSaveClick(e){
+    e.preventDefault();
+    console.log("in onSaveClick()");
+  }
+  function onCancelClick(e){
+    e.preventDefault();
+    console.log("in onCancelClick()");
+  }
+
   return (
     <div>
       <h2>Customer List</h2>
       <div>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Pass</th>
-          </tr>
-          <tr>
-            <CustomerList data={customer_data}></CustomerList>
-          </tr>
-        </table>
+          <div>Name</div>
+          <div>Email</div>
+          <div>Pass</div>
+          
+          <CustomerList data={customer_data}></CustomerList>
+        
       </div>
 
       <div>
@@ -29,9 +39,9 @@ function App() {
           <input></input>
           <label>Pass:</label>
           <input></input>
-          <button>Delete</button>
-          <button>Save</button>
-          <button>Cancel</button>
+          <button onClick={onDeleteClick}>Delete</button>
+          <button onClick={onSaveClick}>Save</button>
+          <button onClick={onCancelClick}>Cancel</button>
         </form>
       </div>
     </div>
