@@ -8,15 +8,8 @@ import customer_data from "./assets/data/customers.json";
 function App() {
 
   return (
-    <div>
-      <h2>Customer List</h2>
-      <div>
-          <div>Name</div>
-          <div>Email</div>
-          <div>Pass</div>
-          
-          <CustomerList data={customer_data}></CustomerList>
-      </div>
+    <div>       
+      <CustomerList data={customer_data}></CustomerList>
       <CustomerAddUpdateForm></CustomerAddUpdateForm>
     </div>
   );

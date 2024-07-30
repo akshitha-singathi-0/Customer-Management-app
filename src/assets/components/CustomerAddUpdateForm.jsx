@@ -17,17 +17,18 @@ const CustomerAddUpdateForm = () => {
 
     return (  
     <div>
-      <form>
-        <label>Name:</label>
-        <input></input>
-        <label>Email:</label>
-        <input></input>
-        <label>Pass:</label>
-        <input></input>
-        <button onClick={onDeleteClick}>Delete</button>
-        <button onClick={onSaveClick}>Save</button>
-        <button onClick={onCancelClick}>Cancel</button>
-      </form>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="John Smith"></input>
+            <label for="exampleFormControlInput2" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com"></input>
+            <label for="exampleFormControlInput3" class="form-label">Pass</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="********"></input>
+        </div>
+        <button type="button" class="btn btn-danger" onClick={onDeleteClick}>Delete</button>
+        <button type="button" class="btn btn-primary" onClick={onSaveClick}>Save</button>
+        <button type="button" class="btn btn-light" onClick={onCancelClick}>Cancel</button>
+      
     </div>
     );
 }
