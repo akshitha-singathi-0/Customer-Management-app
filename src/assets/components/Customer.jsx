@@ -2,7 +2,11 @@ import React from 'react';
 
 const Customer = (props) => {
     return (
-        <div>{props.email}</div>
+        <div>
+            <td>{props.data.name}</td>
+            <td>{props.data.email}</td>
+            <td>{props.data.pass}</td>
+        </div>
     );
 }
 

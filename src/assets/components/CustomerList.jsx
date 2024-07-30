@@ -1,11 +1,16 @@
 import React from 'react';
 import Customer from "./Customer";
-import customer_data from "../data/customers.json";
 
-const CustomerList = () => {
+const CustomerList = (props) => {
     return (
-        <Customer data={customer_data}></Customer>
+        <div>
+        {
+            props.data.map((customer) => (
+                <Customer data={customer}></Customer>
+            ))
+        }
+        </div>        
     );
-}
+};
 
 export default CustomerList;

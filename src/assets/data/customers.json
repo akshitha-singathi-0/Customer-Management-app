@@ -1,5 +1,17 @@
-{
-    "name": "Jack",
-    "email": "jack@adp.com",
-    "pass": "pass@adp.com"
-}
+[
+    {
+        "name": "Jack",
+        "email": "jack@adp.com",
+        "pass": "pass"
+    },
+    {
+        "name": "Jill",
+        "email": "jill@adp.com",
+        "pass": "pass2"
+    },
+    {
+        "name": "Nancy",
+        "email": "nancy@adp.com",
+        "pass": "pass3"
+    }
+]

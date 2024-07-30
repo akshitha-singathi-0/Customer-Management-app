@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import CustomerList from "./assets/components/CustomerList";
+import customer_data from "./assets/data/customers.json";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
             <th>Pass</th>
           </tr>
           <tr>
-            <CustomerList></CustomerList>
+            <CustomerList data={customer_data}></CustomerList>
           </tr>
         </table>
       </div>
