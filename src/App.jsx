@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import CustomerList from "./assets/components/CustomerList";
 import CustomerAddUpdateForm from "./assets/components/CustomerAddUpdateForm";
-import customer_data from "./assets/data/customers.json";
+// import customer_data from "./assets/data/customers.json";
+
+import * as lib from "./memdb";
 
 function App() {
 
   let blankCustomer = { "id": -1, "name": "", "email": "", "pass": "" };
 
-  const [formObject, setFormObject] = useState(blankCustomer)
+  const [customers, setCustomers] = useState([]);
+  const [formObject, setFormObject] = useState(blankCustomer);
+
+  useEffect = (() => {getCustomer() }, [formObject]);
+
+  const getCustomer = function (){
+    console.log("in getCustomer()");
+    setCustomers(lib.getAll());
+  }
 
   function handleListClick(customer){
     if(formObject.id === customer.id)
@@ -24,7 +34,7 @@ function App() {
 
   return (
     <div>       
-      <CustomerList data={customer_data} formObject={formObject} handleListClick={handleListClick}></CustomerList>
+      <CustomerList data={customers} formObject={formObject} handleListClick={handleListClick}></CustomerList>
       <CustomerAddUpdateForm formObject={formObject} onCancelClick={onCancelClick}></CustomerAddUpdateForm>
     </div>
   );
