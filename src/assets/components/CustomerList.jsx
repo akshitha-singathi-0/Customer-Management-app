@@ -1,10 +1,6 @@
 import React from 'react';
 
 const CustomerList = (props) => {
-    function handleListClick(e){
-        e.preventDefault();
-        console.log("in onhandleListClick()")
-    }
 
     return (
         <div>
@@ -18,7 +14,7 @@ const CustomerList = (props) => {
                 <tbody>
                     {
                         props.data.map((customer) => (
-                            <tr key={customer.id} onClick={handleListClick}>
+                            <tr key={customer.id} onClick={()=>props.handleListClick(customer)}>
                                 <td>{customer.name}</td>
                                 <td>{customer.email}</td>
                                 <td>{customer.pass}</td>
