@@ -17,7 +17,7 @@ const CustomerList = (props) => {
                             <tr key={customer.id} onClick={()=>props.handleListClick(customer)} className={ (customer.id === props.formObject.id)?'mark':'' }>
                                 <td>{customer.name}</td>
                                 <td>{customer.email}</td>
-                                <td>{customer.pass}</td>
+                                <td>{customer.password}</td>
                             </tr>
                         ))
                     }

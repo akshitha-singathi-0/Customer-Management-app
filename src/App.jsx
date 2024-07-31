@@ -13,6 +13,7 @@ function App() {
 
   const [customer, setCustomer] = useState([]);
   const [formObject, setFormObject] = useState(blankCustomer);
+  let mode = (formObject >= 0) ? 'Update' : 'Add';
 
   function handleListClick(customer){
     if(formObject.id === customer.id)
@@ -46,7 +47,13 @@ function App() {
   }
 
   function onSaveClick(){
-    console.log("in onSaveClick()");
+    let postopCallBack = () => {setFormObject(blankCustomer)}
+    if(mode === 'Update'){
+        lib.put(formObject, postopCallBack)
+    }
+    else if (mode === 'Add') {
+      lib.post(formObject, postopCallBack)
+    }
   }  
 
   return (
