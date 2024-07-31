@@ -21,6 +21,15 @@ function App() {
       setFormObject(customer);
   }
 
+  const handleInputChange = function (event) {
+    console.log("in handleInputChange()");
+    const name = event.target.name;
+    const value = event.target.value;
+    let newFormObject = { ...formObject }
+    newFormObject[name] = value;
+    setFormObject(newFormObject);
+  }
+
   useEffect(() => {getCustomers()}, [formObject])
   
   const getCustomers = function () {
@@ -36,12 +45,14 @@ function App() {
     lib.deleteById(formObject.id);
   }
 
-  
+  function onSaveClick(){
+    console.log("in onSaveClick()");
+  }  
 
   return (
     <div>       
       <CustomerList data={customer} formObject={formObject} handleListClick={handleListClick}></CustomerList>
-      <CustomerAddUpdateForm formObject={formObject} onCancelClick={onCancelClick} onDeleteClick={onDeleteClick}></CustomerAddUpdateForm>
+      <CustomerAddUpdateForm formObject={formObject} handleInputChange={handleInputChange} onCancelClick={onCancelClick} onDeleteClick={onDeleteClick} onSaveClick={onSaveClick}></CustomerAddUpdateForm>
     </div>
   );
 }
