@@ -13,7 +13,7 @@ function App() {
 
   const [customer, setCustomer] = useState([]);
   const [formObject, setFormObject] = useState(blankCustomer);
-  let mode = (formObject >= 0) ? 'Update' : 'Add';
+  let mode = (formObject.id >= 0) ? "Update" : "Add";
 
   function handleListClick(customer){
     if(formObject.id === customer.id)
@@ -43,16 +43,22 @@ function App() {
   }
 
   function onDeleteClick(){
-    lib.deleteById(formObject.id);
+    if(formObject.id >=0){
+      lib.deleteById(formObject.id);
+    }
+    setFormObject(blankCustomer);
   }
 
   function onSaveClick(){
-    let postopCallBack = () => {setFormObject(blankCustomer)}
-    if(mode === 'Update'){
-        lib.put(formObject, postopCallBack)
+    //let postopCallBack = () => {setFormObject(blankCustomer)}
+    if (mode === "Update"){
+      console.log("heelo")
+      lib.put(formObject.id, formObject)
+      setFormObject(blankCustomer);
     }
-    else if (mode === 'Add') {
-      lib.post(formObject, postopCallBack)
+    if (mode === "Add") {
+      lib.post(formObject)
+      setFormObject(blankCustomer);      
     }
   }  
 
