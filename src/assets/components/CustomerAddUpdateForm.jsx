@@ -2,10 +2,6 @@ import React from 'react';
 
 const CustomerAddUpdateForm = (props) => {
     
-  function onDeleteClick(e){
-    e.preventDefault();
-    console.log("in onDeleteClick()");
-  }
   function onSaveClick(e){
     e.preventDefault();
     console.log("in onSaveClick()");
@@ -22,7 +18,7 @@ const CustomerAddUpdateForm = (props) => {
             <label for="exampleFormControlInput3" class="form-label">Pass</label>
             <input value={props.formObject.pass} type="email" class="form-control" id="exampleFormControlInput3" placeholder="********"></input>
         </div>
-        <button type="button" class="btn btn-danger" onClick={onDeleteClick}>Delete</button>
+        <button type="button" class="btn btn-danger" onClick={props.onDeleteClick}>Delete</button>
         <button type="button" class="btn btn-primary" onClick={onSaveClick}>Save</button>
         <button type="button" class="btn btn-light" onClick={props.onCancelClick}>Cancel</button>
       

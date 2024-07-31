@@ -5,21 +5,14 @@ import CustomerList from "./assets/components/CustomerList";
 import CustomerAddUpdateForm from "./assets/components/CustomerAddUpdateForm";
 // import customer_data from "./assets/data/customers.json";
 
-import * as lib from "./memdb";
+import * as lib from "./memdb.js";
 
 function App() {
 
   let blankCustomer = { "id": -1, "name": "", "email": "", "pass": "" };
 
-  const [customers, setCustomers] = useState([]);
+  const [customer, setCustomer] = useState([]);
   const [formObject, setFormObject] = useState(blankCustomer);
-
-  useEffect = (() => {getCustomer() }, [formObject]);
-
-  const getCustomer = function (){
-    console.log("in getCustomer()");
-    setCustomers(lib.getAll());
-  }
 
   function handleListClick(customer){
     if(formObject.id === customer.id)
@@ -28,14 +21,27 @@ function App() {
       setFormObject(customer);
   }
 
+  useEffect(() => {getCustomers()}, [formObject])
+  
+  const getCustomers = function () {
+    console.log("fetching");
+    setCustomer(lib.getAll);
+  }
+
   function onCancelClick(){
     setFormObject(blankCustomer);
   }
 
+  function onDeleteClick(){
+    lib.deleteById(formObject.id);
+  }
+
+  
+
   return (
     <div>       
-      <CustomerList data={customers} formObject={formObject} handleListClick={handleListClick}></CustomerList>
-      <CustomerAddUpdateForm formObject={formObject} onCancelClick={onCancelClick}></CustomerAddUpdateForm>
+      <CustomerList data={customer} formObject={formObject} handleListClick={handleListClick}></CustomerList>
+      <CustomerAddUpdateForm formObject={formObject} onCancelClick={onCancelClick} onDeleteClick={onDeleteClick}></CustomerAddUpdateForm>
     </div>
   );
 }
