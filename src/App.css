@@ -1,5 +1,17 @@
 .App {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+}
+
+h5{
   text-align: center;
+}
+
+.form-class {
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
 }
 
 .App-logo {

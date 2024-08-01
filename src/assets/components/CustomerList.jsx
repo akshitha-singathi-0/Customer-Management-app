@@ -3,9 +3,9 @@ import React from 'react';
 const CustomerList = (props) => {
 
     return (
-        <div>
-            <h4>Customer List</h4>
-            <table>
+        <div class="table-responsive">
+            <h5>Customer List</h5>
+            <table class="table table-bordred table-striped">
                 <thead>
                     <th>Name</th>
                     <th>Email</th>

@@ -9,7 +9,7 @@ import * as lib from "./memdb.js";
 
 function App() {
 
-  let blankCustomer = { "id": -1, "name": "", "email": "", "pass": "" };
+  let blankCustomer = { "id": -1, "name": "", "email": "", "password": "" };
 
   const [customer, setCustomer] = useState([]);
   const [formObject, setFormObject] = useState(blankCustomer);
@@ -63,9 +63,9 @@ function App() {
   }  
 
   return (
-    <div>       
+    <div class="App">       
       <CustomerList data={customer} formObject={formObject} handleListClick={handleListClick}></CustomerList>
-      <CustomerAddUpdateForm formObject={formObject} handleInputChange={handleInputChange} onCancelClick={onCancelClick} onDeleteClick={onDeleteClick} onSaveClick={onSaveClick}></CustomerAddUpdateForm>
+      <CustomerAddUpdateForm formObject={formObject} mode={mode} handleInputChange={handleInputChange} onCancelClick={onCancelClick} onDeleteClick={onDeleteClick} onSaveClick={onSaveClick}></CustomerAddUpdateForm>
     </div>
   );
 }
